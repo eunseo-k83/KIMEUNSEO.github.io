@@ -1,20 +1,112 @@
-# javawebprograming
-자바웹프로그래밍 과제
+# Landscape
 
-Java web programming assignment : making my Web page 자바웹프로그래밍 과제로 웹 페이지를 만들어 Firebase를 이용해 배포하는 것 까지가 목적입니다.
+A brand new default theme for [Hexo].
 
-평가 기준
+- [Preview](http://hexo.io/hexo-theme-landscape/)
 
-홈페이지에서 최소 두 개 이상의 글이나 결과물로 접근할 수 있어야합니다. 글이나 결과물은 의미 있는 내용이어야 합니다. 숙제를 위해서 그저 별 의미없는 한두줄 문장으로 글 하나 썼다면서 제출하시는 일은 되도록 없으셨으면 합니다. 정 추가할 결과물이 없다면 여태까지 들은 강의 요약이라도 써 보세요. :)
+## Installation
 
-존재하지 않는 페이지로 접근할 경우 404 페이지가 나타나야합니다. 되도록 firebase init에서 만들어진 기본 404.html말고 자신만의 페이지를 만들어보세요.
+### Install
 
-모든 html 페이지는 CSS를 사용한 장식이 기본적으로 되어있어야 합니다. SSG 툴을 그냥 사용하면 기본적으로 html로만 변환되기 때문에 CSS 장식이 되어있지 않습니다. template 등 꾸미기 요소 설정을 알아보시거나 자신만의 CSS를 만들어서 꾸미시길 바랍니다. 보기 좋은 페이지, 남들과의 차별화는 필수이기 때문입니다.
+``` bash
+$ git clone https://github.com/hexojs/hexo-theme-landscape.git themes/landscape
+```
 
-보고서 형식이나 분량은 중요하지 않습니다. A4 한 장 미만의 분량으로 자신의 사이트를 배포하는 데 어떤 조사를 했고, 어떤 기술들을 선택해서 사용했는가에 대한 내용이 들어있으면 됩니다. 작업하면서 어려운 점이 있었다면 그런 내용도 좋구요. 보고서는 본인의 페이지에 링크를 추가하셔도 되고, 마크다운(.md), 구글 문서 등의 파일로 제출하셔도 됩니다.
+**Landscape requires Hexo 2.4 and above.** If you would like to enable the RSS, the [hexo-generate-feed] plugin is also required.
 
-지난 과제는 요구사항만 맞으면 전부 10점을 드렸지만, 이번 과제는 여기까지 잘 하셨다면 7~8점 정도로 생각하고 있습니다.
+### Enable
 
-추가 점수 요소
+Modify `theme` setting in `_config.yml` to `landscape`.
 
-UI/UX가 뛰어난 경우 페이지에 실린 글이나 결과물, 또는 보고서의 내용이 뛰어난 경우 홈페이지 구성에 독창성이 보이는 경우 고급 기술을 활용 한 경우 등
+### Update
+
+``` bash
+cd themes/landscape
+git pull
+```
+
+## Configuration
+
+``` yml
+# Header
+menu:
+  Home: /
+  Archives: /archives
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archives
+- recent_posts
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
+twitter:
+google_plus:
+```
+
+- **menu** - Navigation menu
+- **rss** - RSS link
+- **excerpt_link** - "Read More" link at the bottom of excerpted articles. `false` to hide the link.
+- **fancybox** - Enable [Fancybox]
+- **sidebar** - Sidebar style. You can choose `left`, `right`, `bottom` or `false`.
+- **widgets** - Widgets displaying in sidebar
+- **google_analytics** - Google Analytics ID
+- **favicon** - Favicon path
+- **twitter** - Twiiter ID
+- **google_plus** - Google+ ID
+
+## Features
+
+### Fancybox
+
+Landscape uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
+
+```
+![img caption](img url)
+
+{% fancybox img_url [img_thumbnail] [img_caption] %}
+```
+
+### Sidebar
+
+You can put your sidebar in left side, right side or bottom of your site by editing `sidebar` setting.
+
+Landscape provides 5 built-in widgets:
+
+- category
+- tag
+- tagcloud
+- archives
+- recent_posts
+
+All of them are enabled by default. You can edit them in `widget` setting.
+
+## Development
+
+### Requirements
+
+- [Grunt] 0.4+
+- Hexo 2.4+
+
+### Grunt tasks
+
+- **default** - Download [Fancybox] and [Font Awesome].
+- **fontawesome** - Only download [Font Awesome].
+- **fancybox** - Only download [Fancybox].
+- **clean** - Clean temporarily files and downloaded files.
+
+[Hexo]: https://hexo.io/
+[Fancybox]: http://fancyapps.com/fancybox/
+[Font Awesome]: http://fontawesome.io/
+[Grunt]: http://gruntjs.com/
+[hexo-generate-feed]: https://github.com/hexojs/hexo-generator-feed
